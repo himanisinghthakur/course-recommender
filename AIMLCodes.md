@@ -8,20 +8,14 @@ import math
 
 console = Console()
 
-# =========================
-#       HEADER
-# =========================
 console.print(Panel.fit(
     "[bold cyan]🤖 AI COURSE RECOMMENDATION SYSTEM 🤖[/bold cyan]\n"
     "[italic green]Welcome! Let's find the best courses for you...[/italic green]",
     border_style="bright_magenta"
 ))
 
-# =========================
-#       DATASET
-# =========================
 data = [
-    # Coding
+    ### Coding
     ["coding", "beginner", "Python Basics"],
     ["coding", "intermediate", "Data Structures"],
     ["coding", "advanced", "Algorithms"],
@@ -29,7 +23,7 @@ data = [
     ["coding", "intermediate", "Backend Development"],
     ["coding", "advanced", "Full Stack Projects"],
 
-    # Design
+    ### Design
     ["design", "beginner", "Graphic Design"],
     ["design", "intermediate", "UI/UX Design"],
     ["design", "advanced", "Animation"],
@@ -37,7 +31,7 @@ data = [
     ["design", "intermediate", "Illustrator Skills"],
     ["design", "advanced", "3D Modeling"],
 
-    # Business
+    ### Business
     ["business", "beginner", "Marketing Basics"],
     ["business", "intermediate", "Entrepreneurship"],
     ["business", "advanced", "Business Strategy"],
@@ -45,7 +39,7 @@ data = [
     ["business", "intermediate", "Financial Management"],
     ["business", "advanced", "Corporate Leadership"],
 
-    # AI / Data Science
+    ### AI / Data Science
     ["ai", "beginner", "Introduction to AI"],
     ["ai", "intermediate", "Machine Learning Fundamentals"],
     ["ai", "advanced", "Deep Learning Projects"],
@@ -53,7 +47,7 @@ data = [
     ["ai", "intermediate", "Predictive Analytics"],
     ["ai", "advanced", "NLP & Computer Vision"],
 
-    # Digital Marketing
+    ### Digital Marketing
     ["marketing", "beginner", "Social Media Marketing"],
     ["marketing", "intermediate", "SEO & SEM"],
     ["marketing", "advanced", "Marketing Analytics"],
@@ -73,7 +67,7 @@ interest_map = {
 level_map = {"beginner": 1, "intermediate": 2, "advanced": 3}
 
 career_map = {
-    # Coding
+    ### Coding
     "Python Basics": "Start career in Software Development",
     "Data Structures": "Prepare for coding interviews",
     "Algorithms": "Advanced Software Engineering",
@@ -81,7 +75,7 @@ career_map = {
     "Backend Development": "Become Backend Developer",
     "Full Stack Projects": "Work as Full Stack Developer",
 
-    # Design
+    ### Design
     "Graphic Design": "Become a Designer",
     "UI/UX Design": "Work in Product Design",
     "Animation": "Enter Animation Industry",
@@ -89,7 +83,7 @@ career_map = {
     "Illustrator Skills": "Create Illustrations Professionally",
     "3D Modeling": "Work in 3D Animation or Game Design",
 
-    # Business
+    ### Business
     "Marketing Basics": "Start Digital Marketing Career",
     "Entrepreneurship": "Build your own startup",
     "Business Strategy": "Manage corporate strategy",
@@ -97,7 +91,7 @@ career_map = {
     "Financial Management": "Work in Finance",
     "Corporate Leadership": "Lead Organizations",
 
-    # AI / Data Science
+    ### AI / Data Science
     "Introduction to AI": "Get started in AI field",
     "Machine Learning Fundamentals": "Work on ML projects",
     "Deep Learning Projects": "Advanced AI Research",
@@ -105,7 +99,7 @@ career_map = {
     "Predictive Analytics": "Build prediction models",
     "NLP & Computer Vision": "Work in AI applications",
 
-    # Digital Marketing
+    ### Digital Marketing
     "Social Media Marketing": "Grow brands online",
     "SEO & SEM": "Work in Search Marketing",
     "Marketing Analytics": "Analyze campaigns effectively",
@@ -114,9 +108,6 @@ career_map = {
     "Growth Hacking Strategies": "Rapid business growth"
 }
 
-# =========================
-#       USER INPUT
-# =========================
 console.print("\n[bold yellow]Select your interest:[/bold yellow]")
 console.print("1 → Coding\n2 → Design\n3 → Business\n4 → AI / Data Science\n5 → Marketing")
 choice = input("Enter choice (1-5): ")
@@ -133,9 +124,7 @@ if not user_level:
     console.print("[bold red]Invalid choice[/bold red]")
     exit()
 
-# =========================
-#       KNN LOGIC
-# =========================
+###    KNN LOGIC
 user_point = [interest_map[user_interest], level_map[user_level]]
 distances = []
 
@@ -148,7 +137,7 @@ distances.sort()
 k = 3
 top_k = distances[:k]
 
-# Weighted Skill Boost
+### Weighted Skill Boost
 skill_scores = {}
 for dist, course in top_k:
     weight = 1 / (dist+1)
@@ -158,16 +147,12 @@ recommended_course = max(skill_scores, key=skill_scores.get)
 total_weight = sum(skill_scores.values())
 skill_boost = (skill_scores[recommended_course]/total_weight)*100
 
-# =========================
-#      ANIMATION SPINNER
-# =========================
+###   ANIMATION SPINNER
 spinner = Spinner("dots", text="Analyzing your profile using AI model...")
 with console.status(spinner):
     sleep(3)
 
-# =========================
-#       TOP COURSES TABLE
-# =========================
+###    TOP COURSES TABLE
 console.print("\n[bold magenta]🚀 🌟 TOP 3 COURSE RECOMMENDATIONS 🌟 🚀[/bold magenta]\n")
 table = Table(title="Recommended Courses", title_style="bold cyan")
 table.add_column("No.", style="yellow", justify="center")
@@ -182,9 +167,7 @@ for i, (dist, course) in enumerate(top_k, start=1):
 
 console.print(table)
 
-# =========================
-#       SKILL BOOST BAR
-# =========================
+###    SKILL BOOST BAR
 console.print("\n[bold yellow]Skill Boost:[/bold yellow]")
 bar_length = 30
 filled = int(skill_boost / (100/bar_length))
@@ -195,9 +178,7 @@ console.print(f"🛠 [bold blue]Learning Stage:[/bold blue] {user_level.capitali
 console.print(f"🎓 [bold magenta]Career Suggestion:[/bold magenta] {career_map.get(recommended_course)}")
 console.print(f"💡 [bold green]Why this course fits you:[/bold green] Matches your interest & learning stage")
 
-# =========================
-#       ENDING PANEL
-# =========================
+###   ENDING PANEL
 console.print(Panel.fit(
     "[bold cyan]✨ Congratulations! Your personalized learning journey is ready ✨[/bold cyan]\n"
     "[bold green]💡 Keep progressing, explore knowledge, and unlock your potential! 🚀[/bold green]",
