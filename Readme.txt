@@ -1,10 +1,10 @@
-## AI Course Recommendation System
+# AI Course Recommendation System
 
 A command-line interface (CLI) project that recommends personalized courses based on the user's interest and learning stage using AI/ML concepts.
 Built in Python, this project uses the rich library to provide a colorful, interactive, and visually appealing terminal experience.
 
 
-## Features
+# Features
 - User Input: Select your field of interest and learning stage.
 - KNN-Based Recommendation: Recommends the top 3 courses closest to user preferences.
 - Weighted Skill Boost: Displays how suitable the recommended course is for the user.
@@ -16,12 +16,12 @@ Built in Python, this project uses the rich library to provide a colorful, inter
       - Skill Boost progress bar for better visualization
 
 
-## Installation
-1. Clone the repository:
+# Installation
+- Clone the repository:
     git clone https://github.com/{username}/{repo-name}.git
     cd {repo-name}
 
-2. Install dependencies:
+- Install dependencies:
     pip install rich
 Requires Python 3.x
 
@@ -44,7 +44,7 @@ Requires Python 3.x
     - Explanation of why the course fits you
 
 
-## Example Outpu
+## Example Output
 🤖 AI COURSE RECOMMENDATION SYSTEM 🤖
 Welcome! Let's find the best courses for you...
 
