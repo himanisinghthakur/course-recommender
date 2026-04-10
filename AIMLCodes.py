@@ -148,7 +148,7 @@ console.print(f"🎓 [bold magenta]Career Suggestion:[/bold magenta] {career_map
 console.print(f"💡 [bold green]Why this course fits you:[/bold green] Matches your interest & learning stage")
 
 console.print(Panel.fit(
-    "[bold cyan]✨ Congratulations! Your personalized learning journey is ready ✨[/bold cyan]\n"
+    "[bold cyan]✨ Congratulations from Himani! Your personalized learning journey is ready ✨[/bold cyan]\n"
     "[bold green]💡 Keep progressing, explore knowledge, and unlock your potential! 🚀[/bold green]",
     border_style="bright_magenta"
 ))
